@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content{display: none;}
+    </style>
+</head>
+<body>
+    <ul id="nav">
+        <li>导航1</li>
+        <li>导航2</li>
+        <li>导航3</li>
+    </ul>
+    <div id="wrap">
+        <div class="content">内容1</div>
+        <div class="content">内容2</div>
+        <div class="content">内容3</div>
+    </div>
+</body>
+<script>
+    var ul = document.getElementById('nav');
+    var wrap = document.getElementById('wrap');
+    var wrapList = wrap.getElementsByClassName('content');
+    wrapList[0].style.display = 'block'
+    ul.addEventListener('click',function(e){
+        var item = e.target;
+        var lists = Array.from(ul.querySelectorAll('li'));
+        for (let i in wrapList) {
+            console.log(i);
+            if (i == lists.indexOf(item)) {
+                wrapList[i].style.display = 'block'
+            } else {
+                if (wrapList[i].style) {
+                    wrapList[i].style.display = 'none'
+                }  
+            }
+        }
+    }, false)
+</script>
+</html>
